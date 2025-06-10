@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: calculator-deployment
-  labels:
-    app: calculator
 spec:
   replicas: 1
   selector:
@@ -15,8 +13,8 @@ spec:
         app: calculator
     spec:
       containers:
-        - name: calculator-container
-          image: siddb1/calculator:latest  # Make sure this image exists on Docker Hub
+        - name: calculator
+          image: siddb704/springcalc:latest
           ports:
-            - containerPort: 80
-
+            - containerPort: 8080
+          imagePullPolicy: Always

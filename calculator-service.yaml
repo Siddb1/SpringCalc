@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: calculator-service
 spec:
-  type: NodePort
   selector:
     app: calculator
   ports:
     - protocol: TCP
-      port: 8080         # External service port
-      targetPort: 8080 # Internal pod port used by Spring Boot
-      nodePort: 30080  # Node port for external access
+      port: 80
+      targetPort: 8080
+      nodePort: 30080  # You can pick any port between 30000-32767
+  type: NodePort
